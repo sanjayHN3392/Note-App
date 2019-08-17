@@ -1,5 +1,5 @@
  import React from 'react'
- import axios from "axios"
+ import axios from '../../config/config'
  import { Link} from 'react-router-dom'
 
 class NotesForm extends React.Component{
@@ -38,7 +38,7 @@ class NotesForm extends React.Component{
     }
 
     componentDidMount(){
-        axios.get('http://localhost:3006/categories')
+        axios.get('/categories')
         
             .then((response)=>{
                 console.log(response.data)
@@ -52,7 +52,7 @@ class NotesForm extends React.Component{
         this.setState(()=>({
             title:nextprops.note.title,
             body:nextprops.note.body,
-            category:nextprops.note.category._id
+            category:nextprops.note.category
         }))
     }
     render(){
