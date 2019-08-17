@@ -9,9 +9,8 @@ class NotesForm extends React.Component{
             title:'',
             body:'',
             category:'',
-            categories:[],
-            addCategory:''
-            
+            categories:[]
+               
         }
         this.handleChange=this.handleChange.bind(this)
         this.handleSubmit=this.handleSubmit.bind(this)
@@ -52,7 +51,7 @@ class NotesForm extends React.Component{
         this.setState(()=>({
             title:nextprops.note.title,
             body:nextprops.note.body,
-            category:nextprops.note.category
+            category:nextprops.note.category._id
         }))
     }
     render(){
