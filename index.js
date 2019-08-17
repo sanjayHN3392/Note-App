@@ -2,6 +2,9 @@ const express=require('express')
 const cors=require('cors')
 const mongoose=require('./config/database')
 const router=require('./config/routes')
+const app=express()
+app.use(express.json())
+app.use(cors())
 const path = require("path");
 const port = process.env.PORT || 3006
 app.use(express.static(path.join(__dirname,"client/build")))
@@ -16,11 +19,7 @@ const categoryRouter=require('./app/controllers/categoryControllers')
 
 
 
-const app=express()
-const port=3006
 
-app.use(express.json())
-app.use(cors())
 
 
 
