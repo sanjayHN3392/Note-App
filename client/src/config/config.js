@@ -10,7 +10,7 @@ if(window.location.hostname === 'localhost'){
   });
 }else{
   axios = Axios.create({
-    baseURL: "https://vnoteapp.herokuapp.com"
+    baseURL: "https://snote-app.herokuapp.com"
   });
 }
 
