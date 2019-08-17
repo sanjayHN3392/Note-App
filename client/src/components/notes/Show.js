@@ -1,5 +1,5 @@
 import React from 'react'
-import axios from 'axios'
+import axios from '../../config/config'
 import {Link} from 'react-router-dom'
 
 class NotesShow extends React.Component{
@@ -12,7 +12,7 @@ class NotesShow extends React.Component{
     }
     componentDidMount(){
         const id=this.props.match.params.id
-        axios.get(`http://localhost:3006/notes/${id}`)
+        axios.get(`/notes/${id}`)
         .then((response=>{
             this.setState(()=>({
                 note:response.data
@@ -24,8 +24,8 @@ class NotesShow extends React.Component{
         const id=this.props.match.params.id
         const confirmRemove=window.confirm('are you sure')
         if(confirmRemove){
-        axios.delete(`http://localhost:3006/notes/${id}`)
-            .then(()=>{
+        axios.delete(`/${id}`)
+            .then(()=>{   
                 this.props.history.push('/notes')
             })
         }
@@ -34,14 +34,16 @@ class NotesShow extends React.Component{
         render(){
             return(
                 <div>
-                        <h2>{this.state.note.title}</h2>
-                        <p>{this.state.note.body}</p>
+                    <div class="container">
+                        <h2>Title:  {this.state.note.title}</h2>
+                        <p>  body:    {this.state.note.body}</p>
 
-                        <p>{this.state.note.category && this.state.note.category.name}</p>
+                        <p>Category:{this.state.note.category && this.state.note.category.name}</p>
                     
                         <Link to='/notes'>Back</Link>
                         <Link to={`/notes/edit/${this.props.match.params.id}`}>Edit</Link>
-                        <button onClick={this.handleRemove}>delete</button>
+                        <button  class="btn btn-primary" value="delete" onClick={this.handleRemove}>delete</button>
+                        </div>
                 </div>
             )
         }

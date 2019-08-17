@@ -4,9 +4,12 @@ import { BrowserRouter,Route,Link,Switch} from 'react-router-dom'
 
 import NotesList from './components/notes/Lists'
 
+
 import NotesNew from './components/notes/New'
 
 import NotesShow from './components/notes/Show'
+import NotesEdit from './components/notes/Edit'
+
 
 class App extends React.Component{
 
@@ -14,12 +17,15 @@ class App extends React.Component{
     render(){
         return(
             <BrowserRouter>
-            <div>
+            <div class="container-fluid">
                 <h1>My Notes App</h1>
-                <Link to="/notes">Listing notes</Link>
+                <h2><Link to="/notes">Listing notes</Link></h2>
+                
             <Switch>
                 <Route path='/notes' component={NotesList} exact={true}/>
+            
                 <Route path='/notes/New' component={NotesNew}/>
+                <Route path='/notes/Edit/:id' component={NotesEdit}/>
                 <Route path='/notes/:id' component={NotesShow}/>
     
             </Switch>

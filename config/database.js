@@ -4,8 +4,10 @@ const mongoose=require('mongoose')
 //configure the promise library to ES6 promise
 mongoose.Promise=global.Promise
 //connect to db
-
-mongoose.connect('mongodb://localhost:27017/notes-app-feb1',{useNewUrlParser:true})
+const CONNECTION_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/notes-app-feb1"
+	mongoose
+		
+mongoose.connect(CONNECTION_URI,{useCreateIndex:true,useNewUrlParser:true})
 .then(()=>{
     console.log('connected to db')
 })
