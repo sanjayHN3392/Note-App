@@ -101,7 +101,7 @@ class NotesForm extends React.Component{
                     </div>
                     </label>
                 </form>
-        
+            <h3><Link to='/notes/Category'>Add Category</Link></h3>
 
             </div>
         )

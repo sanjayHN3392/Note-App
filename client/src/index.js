@@ -4,7 +4,7 @@ import { BrowserRouter,Route,Link,Switch} from 'react-router-dom'
 
 import NotesList from './components/notes/Lists'
 
-
+import AddCategory from './components/notes/Category'
 import NotesNew from './components/notes/New'
 
 import NotesShow from './components/notes/Show'
@@ -23,6 +23,7 @@ class App extends React.Component{
                 
             <Switch>
                 <Route path='/notes' component={NotesList} exact={true}/>
+                <Route path='/notes/Category' component={AddCategory}/>
             
                 <Route path='/notes/New' component={NotesNew}/>
                 <Route path='/notes/Edit/:id' component={NotesEdit}/>

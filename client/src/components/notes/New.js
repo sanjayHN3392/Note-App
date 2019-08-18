@@ -2,6 +2,7 @@ import React from 'react'
 import axios from '../../config/config'
 import NotesForm from './Form'
 
+
 class NotesNew extends React.Component{
     constructor(props){
         super()
@@ -20,7 +21,7 @@ class NotesNew extends React.Component{
 
                  console.log(response)
                 if(response.data.hasOwnProperty('errors')){
-                    console.log(response.data.erros)
+                    console.log(response.data.errors)
                 }else{
                     this.props.history.push('/notes')
                 }
