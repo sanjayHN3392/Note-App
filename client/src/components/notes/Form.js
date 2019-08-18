@@ -64,7 +64,7 @@ class NotesForm extends React.Component{
                   
                     <label>
                     <div class="container">
-                        category
+                        category  
                         <select  value={this.state.category}  name="category" onChange={this.handleChange}>
                             <option value="">select</option>
                             {this.state.categories.map((category)=>{
