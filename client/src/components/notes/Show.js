@@ -20,11 +20,11 @@ class NotesShow extends React.Component{
         }))
     }
 
-    handleRemove(){
+    handleRemove=(e)=>{
         const id=this.props.match.params.id
         const confirmRemove=window.confirm('are you sure')
         if(confirmRemove){
-        axios.delete(`/${id}`)
+        axios.delete(`/notes/${id}`)
             .then(()=>{   
                 this.props.history.push('/notes')
             })
